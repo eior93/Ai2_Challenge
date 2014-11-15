@@ -1,0 +1,42 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.05in}
+
+\begin{document}
+
+\title{\vspace{-2cm}Anagram Finder README\vspace{-1cm}}
+\date{}
+\maketitle
+\subsection*{How to use}
+To use, run the binary located in the /bin folder. The program can be run in several different ways:
+\begin{enumerate}
+\item {\bf AnagramFinderMain.jar filepath [-cs] \{words\}}
+
+Prints anagrams for given words to standard out. Words should be separated by spaces.
+
+\item {\bf AnagramFinderMain.jar filepath [-cs]}
+
+Starts a REPL into which the user can enter one or several words for which he/she wants to find anagrams.
+
+\item {\bf AnagramFinderMain.jar filepath -g [-cs]}
+
+Starts the UI version of the anagram finder.
+\end{enumerate}
+
+In all of the above, the first argument should be the path to the text file to be used as the dictionary. The -cs flag specifies whether or not the program should care about case sensitivity.
+\subsection*{Implementation Details}
+The anagram finder is implemented as a hashtable. The values in the table are lists of strings which have the same number of each letter, and the keys are the corresponding alphabetically sorted string representing each list. For example $\langle abc, \{abc, bac, cba, acb\} \rangle$ is a valid key-value pair in the table.
+
+To add a string to the word bank, the program sorts the string, then adds the string to the list in the appropriate bucket. To find the anagrams of a string, the program sorts the string, and returns the list in the appropriate bucket.
+
+If $n$ is the number of words in the dictionary, and $m$ is the length of the longest string in the dictionary, constructing the table requires $O(nm \log m)$ time, and $O(n)$ space. Finding the anagrams of a word of length $m$ requires $O(m \log m)$ time.
+
+\subsection*{Tests}
+Unit tests are located in the /test folder.
+
+\end{document}
