@@ -13,17 +13,17 @@
 \date{}
 \maketitle
 \subsection*{How to use}
-To use, run the binary located in the /bin folder. The program can be run in several different ways:
+To use, run the jar AnagramFinderMain.jar located in the root folder. The program can be run in several different ways:
 \begin{enumerate}
-\item {\bf AnagramFinderMain.jar filepath [-cs] \{words\}}
+\item {\bf java -jar AnagramFinderMain.jar filepath [-cs] \{words\}}
 
 Prints anagrams for given word(s) to std out. Words should be separated by spaces.
 
-\item {\bf AnagramFinderMain.jar filepath [-cs]}
+\item {\bf java -jar AnagramFinderMain.jar filepath [-cs]}
 
-Starts a REPL into which the user can enter one or several words for which he/she wants to find anagrams. Words should be separated by spaces.
+Starts a REPL into which the user can enter one or several words for which he/she wants to find anagrams. Words should be separated by spaces. Press return on an empty line to exit the REPL.
 
-\item {\bf AnagramFinderMain.jar filepath -g [-cs]}
+\item {\bf java -jar AnagramFinderMain.jar filepath -g [-cs]}
 
 Starts the UI version of the anagram finder.
 \end{enumerate}

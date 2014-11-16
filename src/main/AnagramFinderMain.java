@@ -46,6 +46,10 @@ public class AnagramFinderMain {
 				BufferedReader in = new BufferedReader(inreader);
 				String str;
 				while ((str = in.readLine()) != null) {
+					if (str.equals("") || str.equals(" ")){
+						System.out.println("Goodbye");
+						return;
+					}
 					String[] strs = str.split(" ");
 					for (String s: strs){
 						printAnagrams(s,angrmFndr);
@@ -59,7 +63,7 @@ public class AnagramFinderMain {
 			AnagramUI g = new AnagramUI(angrmFndr);
 		}
 	}
-	
+
 	/** Returns String representing anagrams of input word (comma separated)
 	 * @param word input word
 	 * @param angrmFndr Anagram Finder
@@ -68,7 +72,7 @@ public class AnagramFinderMain {
 	static String getAnagrams(String word, AnagramFinder angrmFndr){
 		List<String> result = angrmFndr.getAnagrams(word);
 		if (result.size() == 0) return "";
-		
+
 		StringBuilder ans = new StringBuilder();
 		int i=0;
 		while (i<result.size()-1) {
